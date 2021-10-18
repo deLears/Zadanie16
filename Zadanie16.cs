@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +12,8 @@ namespace ConsoleApp26
 {
     class Zadanie16
     {
+        public static object ItemPrice { get; private set; }
+
         static void Main(string[] args)
         {
             Item[] ItemArray = new Item[5];
@@ -44,9 +46,10 @@ namespace ConsoleApp26
 
             }
             int max = 0;
+            
             for (int i = 0; i < RestoredItemArray.Length; i++)
             {
-
+                
                 if (ItemPrice.RestoredItemArray[i] > max)
                 {
                     max = RestoredItemArray[i];
@@ -59,7 +62,11 @@ namespace ConsoleApp26
             public string ItemName { get; set; }
             public int ItemPrice { get; set; }
 
-
+            public static implicit operator int(Item v)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
+
